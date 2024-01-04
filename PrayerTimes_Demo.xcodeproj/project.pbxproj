@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A679016E2A383AF100F088FE /* PrayerTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A679016D2A383AF100F088FE /* PrayerTimeViewController.swift */; };
+		A6BC32A42A4023E400930936 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BC32A32A4023E400930936 /* Model.swift */; };
+		A6D72EDF2B3F077900A8942A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D72EDE2B3F077900A8942A /* ViewModel.swift */; };
 		A6D74B4D2A38381300180810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D74B4C2A38381300180810 /* AppDelegate.swift */; };
 		A6D74B4F2A38381300180810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D74B4E2A38381300180810 /* SceneDelegate.swift */; };
-		A6D74B512A38381300180810 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D74B502A38381300180810 /* ViewController.swift */; };
-		A6D74B542A38381300180810 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D74B522A38381300180810 /* Main.storyboard */; };
 		A6D74B572A38381300180810 /* PrayerTimes_Demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6D74B552A38381300180810 /* PrayerTimes_Demo.xcdatamodeld */; };
 		A6D74B592A38381400180810 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6D74B582A38381400180810 /* Assets.xcassets */; };
 		A6D74B5C2A38381400180810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D74B5A2A38381400180810 /* LaunchScreen.storyboard */; };
+		C8DB5D93DB0F5EE0E02F196C /* Pods_PrayerTimes_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AF82492C982566E6998D54 /* Pods_PrayerTimes_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17ECDCA1A0C73917A66F8857 /* Pods-PrayerTimes_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrayerTimes_Demo.debug.xcconfig"; path = "Target Support Files/Pods-PrayerTimes_Demo/Pods-PrayerTimes_Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		375F88292CF599C8F227CF57 /* Pods-PrayerTimes_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrayerTimes_Demo.release.xcconfig"; path = "Target Support Files/Pods-PrayerTimes_Demo/Pods-PrayerTimes_Demo.release.xcconfig"; sourceTree = "<group>"; };
+		37AF82492C982566E6998D54 /* Pods_PrayerTimes_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrayerTimes_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A679016D2A383AF100F088FE /* PrayerTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeViewController.swift; sourceTree = "<group>"; };
+		A6BC32A32A4023E400930936 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		A6D72EDE2B3F077900A8942A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		A6D74B492A38381300180810 /* PrayerTimes_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrayerTimes_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D74B4C2A38381300180810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6D74B4E2A38381300180810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A6D74B502A38381300180810 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A6D74B532A38381300180810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6D74B562A38381300180810 /* PrayerTimes_Demo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrayerTimes_Demo.xcdatamodel; sourceTree = "<group>"; };
 		A6D74B582A38381400180810 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6D74B5B2A38381400180810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,17 +39,69 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8DB5D93DB0F5EE0E02F196C /* Pods_PrayerTimes_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47E698A21F3FAAE1E56C5CA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37AF82492C982566E6998D54 /* Pods_PrayerTimes_Demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A679016A2A3838E500F088FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A679016B2A3838F400F088FE /* Controller */,
+				A679016C2A3838FE00F088FE /* Storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A679016B2A3838F400F088FE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A679016D2A383AF100F088FE /* PrayerTimeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A679016C2A3838FE00F088FE /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A6D74B5A2A38381400180810 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		A6BC32A12A4023CC00930936 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A6BC32A32A4023E400930936 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A6D72EDD2B3F074100A8942A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A6D72EDE2B3F077900A8942A /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A6D74B402A38381300180810 = {
 			isa = PBXGroup;
 			children = (
 				A6D74B4B2A38381300180810 /* PrayerTimes_Demo */,
 				A6D74B4A2A38381300180810 /* Products */,
+				E085FF50D1B421BF1F1466A8 /* Pods */,
+				47E698A21F3FAAE1E56C5CA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +116,25 @@
 		A6D74B4B2A38381300180810 /* PrayerTimes_Demo */ = {
 			isa = PBXGroup;
 			children = (
+				A6BC32A12A4023CC00930936 /* Model */,
+				A6D72EDD2B3F074100A8942A /* ViewModel */,
+				A679016A2A3838E500F088FE /* View */,
 				A6D74B4C2A38381300180810 /* AppDelegate.swift */,
 				A6D74B4E2A38381300180810 /* SceneDelegate.swift */,
-				A6D74B502A38381300180810 /* ViewController.swift */,
-				A6D74B522A38381300180810 /* Main.storyboard */,
 				A6D74B582A38381400180810 /* Assets.xcassets */,
-				A6D74B5A2A38381400180810 /* LaunchScreen.storyboard */,
 				A6D74B5D2A38381400180810 /* Info.plist */,
 				A6D74B552A38381300180810 /* PrayerTimes_Demo.xcdatamodeld */,
 			);
 			path = PrayerTimes_Demo;
+			sourceTree = "<group>";
+		};
+		E085FF50D1B421BF1F1466A8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17ECDCA1A0C73917A66F8857 /* Pods-PrayerTimes_Demo.debug.xcconfig */,
+				375F88292CF599C8F227CF57 /* Pods-PrayerTimes_Demo.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +144,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6D74B602A38381400180810 /* Build configuration list for PBXNativeTarget "PrayerTimes_Demo" */;
 			buildPhases = (
+				CD5A81792899B240CE758C38 /* [CP] Check Pods Manifest.lock */,
 				A6D74B452A38381300180810 /* Sources */,
 				A6D74B462A38381300180810 /* Frameworks */,
 				A6D74B472A38381300180810 /* Resources */,
+				0FE302B9779D0FFCBE4644CC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,35 +199,70 @@
 			files = (
 				A6D74B5C2A38381400180810 /* LaunchScreen.storyboard in Resources */,
 				A6D74B592A38381400180810 /* Assets.xcassets in Resources */,
-				A6D74B542A38381300180810 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0FE302B9779D0FFCBE4644CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PrayerTimes_Demo/Pods-PrayerTimes_Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PrayerTimes_Demo/Pods-PrayerTimes_Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PrayerTimes_Demo/Pods-PrayerTimes_Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD5A81792899B240CE758C38 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PrayerTimes_Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A6D74B452A38381300180810 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6D74B512A38381300180810 /* ViewController.swift in Sources */,
 				A6D74B4D2A38381300180810 /* AppDelegate.swift in Sources */,
 				A6D74B572A38381300180810 /* PrayerTimes_Demo.xcdatamodeld in Sources */,
+				A679016E2A383AF100F088FE /* PrayerTimeViewController.swift in Sources */,
 				A6D74B4F2A38381300180810 /* SceneDelegate.swift in Sources */,
+				A6BC32A42A4023E400930936 /* Model.swift in Sources */,
+				A6D72EDF2B3F077900A8942A /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A6D74B522A38381300180810 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6D74B532A38381300180810 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A6D74B5A2A38381400180810 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -286,16 +390,19 @@
 		};
 		A6D74B612A38381400180810 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17ECDCA1A0C73917A66F8857 /* Pods-PrayerTimes_Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LYCXTPX25J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrayerTimes_Demo/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow to test this app! ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -313,16 +420,19 @@
 		};
 		A6D74B622A38381400180810 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 375F88292CF599C8F227CF57 /* Pods-PrayerTimes_Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LYCXTPX25J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrayerTimes_Demo/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow to test this app! ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
