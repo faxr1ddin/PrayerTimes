@@ -30,7 +30,7 @@ class PrayerTimesViewModel: NSObject {
                 return
             }
             
-            if let city = placemark.locality {
+            if let city = placemark.administrativeArea {
                 print("City: \(city)")
                 self.makeAPIRequest(withCity: city) {
                     completion()
@@ -41,9 +41,8 @@ class PrayerTimesViewModel: NSObject {
             }
         }
     }
-    
-    
-    func makeAPIRequest(withCity city: String, completion: @escaping () -> Void) {
+
+func makeAPIRequest(withCity city: String, completion: @escaping () -> Void) {
         
         let currentDate = Date()
         let dateFormatter = DateFormatter()
@@ -72,7 +71,7 @@ class PrayerTimesViewModel: NSObject {
                     print("Error: \(error)")
                 }
             }
-    }
+}
 }
 
 extension PrayerTimesViewModel: CLLocationManagerDelegate {
@@ -88,3 +87,4 @@ extension PrayerTimesViewModel: CLLocationManagerDelegate {
         print("Location manager error: \(error.localizedDescription)")
     }
 }
+
