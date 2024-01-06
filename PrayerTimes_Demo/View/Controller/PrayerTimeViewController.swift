@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import CoreLocation
+import Alamofire
 
 class PrayerTimeViewController: UIViewController {
     
@@ -84,12 +85,28 @@ class PrayerTimeViewController: UIViewController {
         return tableView
     }()
     
+    //activityIndicator
+    let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .white
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
+    //second blur
+    let overlayView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let view = UIVisualEffectView(effect: blurEffect)
+        view.isHidden = true
+        return view
+    }()
+    
     //variables
     var manager: CLLocationManager?
     var apiResult: TimeList?
     var arrayData = [String]()
     var timer: Timer?
-
+    
     //constants
     let viewModel = PrayerTimesViewModel()
     let tableData = ["Bomdod" , "Peshin" , "Asr" , "Shom" , "Xufton"]
@@ -102,6 +119,7 @@ class PrayerTimeViewController: UIViewController {
         initView()
         updateCurrentTime()
         startTimer()
+        view.bringSubviewToFront(activityIndicator)
         
         viewModel.locationSettings {
             DispatchQueue.main.async {
@@ -129,15 +147,15 @@ class PrayerTimeViewController: UIViewController {
         manager?.startUpdatingLocation()
         
     }
-        
+    
     //update currentTime and until prayer time
     func startTimer() {
-
+        
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self , selector: #selector(updateCurrentTime), userInfo: nil , repeats: true)
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-
+        
         RunLoop.current.add(timer!, forMode: .default)
-
+        
         updateTimer()
     }
     
@@ -147,7 +165,7 @@ class PrayerTimeViewController: UIViewController {
         guard let currentLocation = manager?.location else {
             return
         }
-
+        
         getAddress(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
         viewModel.findUserLocation(forLocation: currentLocation) {
             self.viewModel.calculateTimeUntilPrayer { prayerMessage, timeUntilNextPrayer in
@@ -158,6 +176,9 @@ class PrayerTimeViewController: UIViewController {
             }
             self.tableView.reloadData()
         }
+        
+        checkNetworkAndFetchData()
+        
     }
     
     //initView
@@ -241,8 +262,20 @@ class PrayerTimeViewController: UIViewController {
             make.width.equalTo(view.snp.width).multipliedBy(0.86)
             make.height.equalTo(view.snp.height).multipliedBy(0.38)
         }
-    }
         
+        //activity indicator
+        view.addSubview(activityIndicator)
+        activityIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        //overlayView
+        view.addSubview(overlayView)
+        overlayView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
     // Get location
     func getAddress(latitude: Double, longitude: Double) {
         let geoCoder = CLGeocoder()
@@ -259,7 +292,7 @@ class PrayerTimeViewController: UIViewController {
             }
         }
     }
-        
+    
     //update currentTime
     @objc func updateCurrentTime() {
         
@@ -271,6 +304,20 @@ class PrayerTimeViewController: UIViewController {
         let time = timeFormater.string(from: Date())
         timeLabel.text = time
         
+    }
+    
+    //check Network
+    func checkNetworkAndFetchData() {
+        if NetworkReachabilityManager()?.isReachable ?? false {
+            
+            //if network is available
+            activityIndicator.stopAnimating()
+            overlayView.isHidden = true
+        } else {
+            // if network is not available
+            activityIndicator.startAnimating()
+            overlayView.isHidden = false
+        }
     }
 }
 

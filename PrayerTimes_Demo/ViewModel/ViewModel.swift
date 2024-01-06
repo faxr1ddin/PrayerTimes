@@ -112,7 +112,7 @@ class PrayerTimesViewModel: NSObject {
         
         //my api
         let apiURL = "https://api.aladhan.com/v1/timingsByAddress/\(formattedDate)?address=\(city)"
-                
+        
         //using Alamofire
         AF.request(apiURL)
             .validate()
