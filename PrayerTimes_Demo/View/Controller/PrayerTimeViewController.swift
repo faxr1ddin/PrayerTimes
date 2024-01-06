@@ -22,7 +22,7 @@ class PrayerTimeViewController: UIViewController {
     
     let textLabel: UILabel = {
         let label = UILabel()
-        label.text = "The time right now is"
+        label.text = "Hozirgi vaqt"
         label.font = .monospacedDigitSystemFont(ofSize: 20, weight: .medium)
         label.textColor = .white
         return label
@@ -55,7 +55,7 @@ class PrayerTimeViewController: UIViewController {
     
     let nextPrayerName: UILabel = {
         let label = UILabel()
-        label.text = "The next prayer is"
+        label.text = "Keyingi namoz"
         label.font = .monospacedDigitSystemFont(ofSize: 20, weight: .medium)
         label.textColor = .white
         return label
@@ -64,7 +64,6 @@ class PrayerTimeViewController: UIViewController {
     
     let prayerName: UILabel = {
         let label = UILabel()
-        label.text = "Peshin"
         label.font = .monospacedDigitSystemFont(ofSize: 32, weight: .heavy)
         label.textColor = .white
         return label
@@ -72,7 +71,6 @@ class PrayerTimeViewController: UIViewController {
     
     let prayerTime: UILabel = {
         let label = UILabel()
-        label.text = "at 4:32 in 50 minutes"
         label.font = .monospacedDigitSystemFont(ofSize: 20, weight: .medium)
         label.textColor = .white
         return label
@@ -104,7 +102,7 @@ class PrayerTimeViewController: UIViewController {
         
         //navigation
         
-        navigationItem.title = "Prayer Times"
+        navigationItem.title = "Namoz Vaqtlari"
         navigationController?.navigationBar.prefersLargeTitles = true
 
         //update UI
@@ -233,8 +231,14 @@ class PrayerTimeViewController: UIViewController {
             
             // City
             if let country = placemark.country, let city = placemark.administrativeArea {
-                countryLabel.text = "in \(city), \(country)"
+                countryLabel.text = "\(city), \(country)"
                 viewModel.fetchPrayerTimes(forLocation: location) {
+                    self.viewModel.calculateTimeUntilNextPrayer { prayerMessage, timeUntilNextPrayer in
+                        DispatchQueue.main.async {
+                            self.prayerName.text = "\(prayerMessage)"
+                            self.prayerTime.text = "ga \(timeUntilNextPrayer) qoldi"
+                        }
+                    }
                     self.tableView.reloadData()
                 }
             }
@@ -277,7 +281,7 @@ extension PrayerTimeViewController: UITableViewDelegate , UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let headerTitle: String = "Today's prayer times"
+        let headerTitle: String = "Bugungi namoz vaqtlari"
         return headerTitle
     }
     

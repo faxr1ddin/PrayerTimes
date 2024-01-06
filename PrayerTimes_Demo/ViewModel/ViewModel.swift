@@ -41,8 +41,54 @@ class PrayerTimesViewModel: NSObject {
             }
         }
     }
-
-func makeAPIRequest(withCity city: String, completion: @escaping () -> Void) {
+    
+    func calculateTimeUntilNextPrayer(completion: @escaping (String, String) -> Void) {
+        
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let currentTime = dateFormatter.string(from: currentDate)
+        
+        guard let nextPrayerTime = prayerTimesArray.first(where: { $0 > currentTime }) else {
+            completion("All prayer times have passed for today.", "")
+            return
+        }
+        
+        guard let nextPrayerIndex = prayerTimesArray.firstIndex(of: nextPrayerTime) else {
+            completion("Error identifying the next prayer.", "")
+            return
+        }
+        
+        let nextPrayer = ["Bomdod", "Peshin", "Asr", "Shom", "Hufton"][nextPrayerIndex]
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        guard let currentTimeDate = formatter.date(from: currentTime),
+              let nextPrayerTimeDate = formatter.date(from: nextPrayerTime) else {
+            completion("Error calculating time until the next prayer.", "")
+            return
+        }
+        
+        let timeDifference = nextPrayerTimeDate.timeIntervalSince(currentTimeDate)
+        
+        let hours = Int(timeDifference / 3600)
+        let minutes = Int((timeDifference.truncatingRemainder(dividingBy: 3600)) / 60)
+        let seconds = Int(timeDifference.truncatingRemainder(dividingBy: 60))
+        
+        let timeUntilNextPrayer: String
+        if hours > 0 {
+            timeUntilNextPrayer = String(format: "%02d soat %02d daqiqa", hours, minutes)
+        } else {
+            timeUntilNextPrayer = String(format: "%02d daqiqa %02d soniya", minutes, seconds)
+        }
+        
+        completion(nextPrayer, timeUntilNextPrayer)
+        
+    }
+    
+    func makeAPIRequest(withCity city: String, completion: @escaping () -> Void) {
         
         let currentDate = Date()
         let dateFormatter = DateFormatter()
@@ -66,12 +112,17 @@ func makeAPIRequest(withCity city: String, completion: @escaping () -> Void) {
                         data.data.timings.Isha
                     ]
                     print(self.prayerTimesArray)
+                    
+                    self.calculateTimeUntilNextPrayer { prayerMessage, timeUntilNextPrayer in
+                        print(prayerMessage, timeUntilNextPrayer)
+                    }
+                    
                     completion()
                 case .failure(let error):
                     print("Error: \(error)")
                 }
             }
-}
+    }
 }
 
 extension PrayerTimesViewModel: CLLocationManagerDelegate {
