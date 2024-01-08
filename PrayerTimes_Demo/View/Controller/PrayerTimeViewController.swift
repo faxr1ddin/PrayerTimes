@@ -85,22 +85,6 @@ class PrayerTimeViewController: UIViewController {
         return tableView
     }()
     
-    //activityIndicator
-    let activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .large)
-        indicator.color = .white
-        indicator.hidesWhenStopped = true
-        return indicator
-    }()
-    
-    //second blur
-    let overlayView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .dark)
-        let view = UIVisualEffectView(effect: blurEffect)
-        view.isHidden = true
-        return view
-    }()
-    
     //variables
     var manager: CLLocationManager?
     var apiResult: TimeList?
@@ -176,9 +160,7 @@ class PrayerTimeViewController: UIViewController {
             }
             self.tableView.reloadData()
         }
-        
-        checkNetworkAndFetchData()
-        
+            
     }
     
     //initView
@@ -306,19 +288,6 @@ class PrayerTimeViewController: UIViewController {
         
     }
     
-    //check Network
-    func checkNetworkAndFetchData() {
-        if NetworkReachabilityManager()?.isReachable ?? false {
-            
-            //if network is available
-            activityIndicator.stopAnimating()
-            overlayView.isHidden = true
-        } else {
-            // if network is not available
-            activityIndicator.startAnimating()
-            overlayView.isHidden = false
-        }
-    }
 }
 
 //TableView

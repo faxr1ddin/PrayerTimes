@@ -8,5 +8,6 @@ target 'PrayerTimes_Demo' do
   # Pods for PrayerTimes_Demo
 	pod 'SnapKit'
 	pod 'Alamofire'
+  pod 'Reachability'
 
 end
