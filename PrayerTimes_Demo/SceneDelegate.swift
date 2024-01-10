@@ -16,10 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         //select rootViewController
-        let rootViewController = PrayerTimeViewController()
+        let rootViewController = TabBarController()
         //create navigationController
         let navigationController = UINavigationController(rootViewController: rootViewController)
-
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = navigationController

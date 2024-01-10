@@ -112,8 +112,8 @@ class PrayerTimeViewController: BaseViewController {
         
         //navigation
         
-        navigationItem.title = "Namoz Vaqtlari"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Namoz Vaqtlari"
+//        navigationController?.navigationBar.prefersLargeTitles = true
         
     }
     
@@ -241,7 +241,7 @@ class PrayerTimeViewController: BaseViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(blurView.snp.bottom).offset(25)
             make.width.equalTo(view.snp.width).multipliedBy(0.86)
-            make.height.equalTo(view.snp.height).multipliedBy(0.38)
+            make.height.equalTo(view.snp.height).multipliedBy(0.36)
         }
     }
     
