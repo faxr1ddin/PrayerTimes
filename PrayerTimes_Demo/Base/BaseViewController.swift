@@ -53,7 +53,7 @@ class BaseViewController: UIViewController {
         catch{
             print("Unable to start reachability")
         }
-        view.backgroundColor = .backgroundColor
+        //view.backgroundColor = .backgroundColor
         var indicator: UIActivityIndicatorView
         if #available(iOS 13.0, *) {
             indicator = .init(style: .large)

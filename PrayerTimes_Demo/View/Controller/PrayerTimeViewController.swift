@@ -10,7 +10,7 @@ import SnapKit
 import CoreLocation
 import Alamofire
 
-class PrayerTimeViewController: UIViewController {
+class PrayerTimeViewController: BaseViewController {
     
     //MARK: - ProPorties
     
@@ -103,7 +103,6 @@ class PrayerTimeViewController: UIViewController {
         initView()
         updateCurrentTime()
         startTimer()
-        view.bringSubviewToFront(activityIndicator)
         
         viewModel.locationSettings {
             DispatchQueue.main.async {
@@ -243,18 +242,6 @@ class PrayerTimeViewController: UIViewController {
             make.top.equalTo(blurView.snp.bottom).offset(25)
             make.width.equalTo(view.snp.width).multipliedBy(0.86)
             make.height.equalTo(view.snp.height).multipliedBy(0.38)
-        }
-        
-        //activity indicator
-        view.addSubview(activityIndicator)
-        activityIndicator.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
-        
-        //overlayView
-        view.addSubview(overlayView)
-        overlayView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
         }
     }
     

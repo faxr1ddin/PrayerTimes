@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A6221DC62B4C40D50084E9B4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6221DC52B4C40D50084E9B4 /* BaseViewController.swift */; };
+		A641D13F2B4ECDE000004F6E /* Pods_PrayerTimes_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AF82492C982566E6998D54 /* Pods_PrayerTimes_Demo.framework */; };
 		A679016E2A383AF100F088FE /* PrayerTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A679016D2A383AF100F088FE /* PrayerTimeViewController.swift */; };
 		A6BC32A42A4023E400930936 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BC32A32A4023E400930936 /* Model.swift */; };
 		A6D72EDF2B3F077900A8942A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D72EDE2B3F077900A8942A /* ViewModel.swift */; };
@@ -16,7 +17,6 @@
 		A6D74B572A38381300180810 /* PrayerTimes_Demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6D74B552A38381300180810 /* PrayerTimes_Demo.xcdatamodeld */; };
 		A6D74B592A38381400180810 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6D74B582A38381400180810 /* Assets.xcassets */; };
 		A6D74B5C2A38381400180810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D74B5A2A38381400180810 /* LaunchScreen.storyboard */; };
-		C8DB5D93DB0F5EE0E02F196C /* Pods_PrayerTimes_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AF82492C982566E6998D54 /* Pods_PrayerTimes_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +24,7 @@
 		375F88292CF599C8F227CF57 /* Pods-PrayerTimes_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrayerTimes_Demo.release.xcconfig"; path = "Target Support Files/Pods-PrayerTimes_Demo/Pods-PrayerTimes_Demo.release.xcconfig"; sourceTree = "<group>"; };
 		37AF82492C982566E6998D54 /* Pods_PrayerTimes_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrayerTimes_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6221DC52B4C40D50084E9B4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A641D1392B4E722700004F6E /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A679016D2A383AF100F088FE /* PrayerTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeViewController.swift; sourceTree = "<group>"; };
 		A6BC32A32A4023E400930936 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A6D72EDE2B3F077900A8942A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -41,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8DB5D93DB0F5EE0E02F196C /* Pods_PrayerTimes_Demo.framework in Frameworks */,
+				A641D13F2B4ECDE000004F6E /* Pods_PrayerTimes_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +52,7 @@
 		47E698A21F3FAAE1E56C5CA9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A641D1392B4E722700004F6E /* Reachability.framework */,
 				37AF82492C982566E6998D54 /* Pods_PrayerTimes_Demo.framework */,
 			);
 			name = Frameworks;
@@ -166,6 +168,8 @@
 			dependencies = (
 			);
 			name = PrayerTimes_Demo;
+			packageProductDependencies = (
+			);
 			productName = PrayerTimes_Demo;
 			productReference = A6D74B492A38381300180810 /* PrayerTimes_Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -194,6 +198,8 @@
 				Base,
 			);
 			mainGroup = A6D74B402A38381300180810;
+			packageReferences = (
+			);
 			productRefGroup = A6D74B4A2A38381300180810 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -336,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -390,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -415,8 +421,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,8 +453,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
