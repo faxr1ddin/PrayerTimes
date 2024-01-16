@@ -48,58 +48,62 @@ class PrayerTimesViewModel: NSObject {
         }
     }
     
-    //calculateTimeUntilPrayer
     func calculateTimeUntilPrayer(completion: @escaping (String, String) -> Void) {
         
         //currentTime
         let currentDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        let currentTime = dateFormatter.string(from: currentDate)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
         
-        //if all prayer time passed for today
-        guard let nextPrayerTime = prayerTimesArray.first(where: { $0 > currentTime }) else {
+        let currentTimeString = formatter.string(from: currentDate)
+        
+        //if all prayer times have passed
+        guard let nextPrayerTime = prayerTimesArray.first(where: { $0 > currentTimeString }) else {
             completion("Bomdod", "---")
             return
         }
         
         //error
-        guard let nextPrayerIndex = prayerTimesArray.firstIndex(of: nextPrayerTime) else {
-            completion("Error identifying the next prayer.", "")
-            return
-        }
-        
-        let nextPrayer = ["Bomdod", "Peshin", "Asr", "Shom", "Hufton"][nextPrayerIndex]
-        
-        //format
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        //error
-        guard let currentTimeDate = formatter.date(from: currentTime),
-              let nextPrayerTimeDate = formatter.date(from: nextPrayerTime) else {
+        guard let nextPrayerIndex = prayerTimesArray.firstIndex(of: nextPrayerTime),
+              let nextPrayerTimeDate = formatter.date(from: nextPrayerTime),
+              let currentTimeDate = formatter.date(from: currentTimeString) else {
             completion("Error calculating time until the next prayer.", "")
             return
         }
         
-        let timeDifference = nextPrayerTimeDate.timeIntervalSince(currentTimeDate)
+        var countdown = Int(nextPrayerTimeDate.timeIntervalSince(currentTimeDate))
         
-        let hours = Int(timeDifference / 3600)
-        let minutes = Int((timeDifference.truncatingRemainder(dividingBy: 3600)) / 60)
-        let seconds = Int(timeDifference.truncatingRemainder(dividingBy: 60))
-        
-        //format HH:mm or mm:ss
-        let timeUntilNextPrayer: String
-        if hours > 0 {
-            timeUntilNextPrayer = String(format: "%02d soat %02d daqiqa", hours, minutes)
-        } else {
-            timeUntilNextPrayer = String(format: "%02d daqiqa %02d soniya", minutes, seconds)
+        //untilPrayerTime
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            countdown -= 1  // Decrease time difference every second
+            
+            let hours = countdown / 3600
+            let minutes = (countdown % 3600) / 60
+            let seconds = countdown % 60
+            
+            let timeUntilNextPrayer: String
+            if hours > 0 {
+                timeUntilNextPrayer = String(format: "%02d soat %02d daqiqa", hours, minutes)
+            } else {
+                timeUntilNextPrayer = String(format: "%02d daqiqa %02d soniya", minutes, seconds)
+            }
+            
+            //untilPrayerName
+            let nextPrayer = ["Bomdod", "Peshin", "Asr", "Shom", "Hufton"][nextPrayerIndex]
+            
+            completion(nextPrayer, timeUntilNextPrayer)
+            
+            // stop time when reaches 0
+            if countdown <= 0 {
+                timer.invalidate()
+            }
         }
         
-        completion(nextPrayer, timeUntilNextPrayer)
-        
+        //
+        RunLoop.main.add(timer, forMode: .common)
     }
+    
     
     //fetch api
     func makeAPIRequest(withCity city: String, completion: @escaping () -> Void) {

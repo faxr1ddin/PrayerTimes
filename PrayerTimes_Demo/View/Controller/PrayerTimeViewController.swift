@@ -10,7 +10,7 @@ import SnapKit
 import CoreLocation
 import Alamofire
 
-class PrayerTimeViewController: BaseViewController {
+class PrayerTimeViewController: UIViewController {
     
     //MARK: - ProPorties
     
@@ -112,8 +112,8 @@ class PrayerTimeViewController: BaseViewController {
         
         //navigation
         
-        self.title = "Namoz Vaqtlari"
-//        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Namoz Vaqtlari"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
     }
     
@@ -135,31 +135,33 @@ class PrayerTimeViewController: BaseViewController {
     func startTimer() {
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self , selector: #selector(updateCurrentTime), userInfo: nil , repeats: true)
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        updateTimer()
         
         RunLoop.current.add(timer!, forMode: .default)
-        
-        updateTimer()
     }
     
     //call calculateTimeUntilNextPrayer
     @objc func updateTimer() {
         
-        guard let currentLocation = manager?.location else {
-            return
-        }
-        
-        getAddress(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
-        viewModel.findUserLocation(forLocation: currentLocation) {
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [self] timer in
+            guard let currentLocation = self.manager?.location else {
+                return
+            }
+            //call find userLocation
+            getAddress(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
+            viewModel.findUserLocation(forLocation: currentLocation) {
+                
+            }
+            //call calculateUntilPrayer
             self.viewModel.calculateTimeUntilPrayer { prayerMessage, timeUntilNextPrayer in
                 DispatchQueue.main.async {
                     self.prayerName.text = "\(prayerMessage)"
                     self.prayerTime.text = "ga \(timeUntilNextPrayer) qoldi"
                 }
+                self.tableView.reloadData()
             }
-            self.tableView.reloadData()
         }
-            
+        
     }
     
     //initView

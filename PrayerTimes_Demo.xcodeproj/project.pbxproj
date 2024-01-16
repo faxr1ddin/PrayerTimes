@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A6221DC62B4C40D50084E9B4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6221DC52B4C40D50084E9B4 /* BaseViewController.swift */; };
 		A641D13F2B4ECDE000004F6E /* Pods_PrayerTimes_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AF82492C982566E6998D54 /* Pods_PrayerTimes_Demo.framework */; };
-		A641D1432B4EEA9100004F6E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A641D1422B4EEA9100004F6E /* TabBarController.swift */; };
 		A679016E2A383AF100F088FE /* PrayerTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A679016D2A383AF100F088FE /* PrayerTimeViewController.swift */; };
 		A6BC32A42A4023E400930936 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BC32A32A4023E400930936 /* Model.swift */; };
 		A6D72EDF2B3F077900A8942A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D72EDE2B3F077900A8942A /* ViewModel.swift */; };
@@ -24,9 +22,7 @@
 		17ECDCA1A0C73917A66F8857 /* Pods-PrayerTimes_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrayerTimes_Demo.debug.xcconfig"; path = "Target Support Files/Pods-PrayerTimes_Demo/Pods-PrayerTimes_Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		375F88292CF599C8F227CF57 /* Pods-PrayerTimes_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrayerTimes_Demo.release.xcconfig"; path = "Target Support Files/Pods-PrayerTimes_Demo/Pods-PrayerTimes_Demo.release.xcconfig"; sourceTree = "<group>"; };
 		37AF82492C982566E6998D54 /* Pods_PrayerTimes_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrayerTimes_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6221DC52B4C40D50084E9B4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A641D1392B4E722700004F6E /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A641D1422B4EEA9100004F6E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A679016D2A383AF100F088FE /* PrayerTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeViewController.swift; sourceTree = "<group>"; };
 		A6BC32A32A4023E400930936 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A6D72EDE2B3F077900A8942A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -60,27 +56,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A6221DC42B4C40510084E9B4 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				A6221DC52B4C40D50084E9B4 /* BaseViewController.swift */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		A641D1442B4EF03400004F6E /* TabBarController */ = {
-			isa = PBXGroup;
-			children = (
-				A641D1422B4EEA9100004F6E /* TabBarController.swift */,
-			);
-			path = TabBarController;
-			sourceTree = "<group>";
-		};
 		A679016A2A3838E500F088FE /* View */ = {
 			isa = PBXGroup;
 			children = (
 				A679016B2A3838F400F088FE /* Controller */,
-				A641D1442B4EF03400004F6E /* TabBarController */,
 				A679016C2A3838FE00F088FE /* Storyboard */,
 			);
 			path = View;
@@ -144,7 +123,6 @@
 				A679016A2A3838E500F088FE /* View */,
 				A6D74B4C2A38381300180810 /* AppDelegate.swift */,
 				A6D74B4E2A38381300180810 /* SceneDelegate.swift */,
-				A6221DC42B4C40510084E9B4 /* Base */,
 				A6D74B582A38381400180810 /* Assets.xcassets */,
 				A6D74B5D2A38381400180810 /* Info.plist */,
 				A6D74B552A38381300180810 /* PrayerTimes_Demo.xcdatamodeld */,
@@ -280,12 +258,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6D74B4D2A38381300180810 /* AppDelegate.swift in Sources */,
-				A641D1432B4EEA9100004F6E /* TabBarController.swift in Sources */,
 				A6D74B572A38381300180810 /* PrayerTimes_Demo.xcdatamodeld in Sources */,
 				A679016E2A383AF100F088FE /* PrayerTimeViewController.swift in Sources */,
 				A6D74B4F2A38381300180810 /* SceneDelegate.swift in Sources */,
 				A6BC32A42A4023E400930936 /* Model.swift in Sources */,
-				A6221DC62B4C40D50084E9B4 /* BaseViewController.swift in Sources */,
 				A6D72EDF2B3F077900A8942A /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
